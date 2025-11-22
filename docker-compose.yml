@@ -1,0 +1,29 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: voiceagent-backend
+    env_file:
+      - ./backend/.env.prod
+    networks:
+      - local
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: voiceagent-frontend
+    restart: "always"
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./frontend/.env.prod
+    networks:
+      - local
+    depends_on:
+      - backend
+
+networks:
+  local:
+    driver: bridge
