@@ -1,0 +1,51 @@
+# Node / Next.js artifacts
+node_modules/
+.next/
+out/
+dist/
+
+# Build and cache
+.cache/
+.turbo/
+
+# Local env files
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Editor directories and files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Mac / Linux files
+.DS_Store
+Thumbs.db
+
+# Tests and coverage
+coverage/
+.nyc_output/
+
+# Docker and OS files
+.dockerignore
+
+# Public and static assets should NOT be ignored if they need to be copied into the image
+# Keep `public/` and other necessary build inputs
+!public/**
+
+# Next.js build output of static export (if using `next export`)
+export/
+
+# Misc
+.cache-loader
+build/
+
+# If using storybook
+.storybook-static/
