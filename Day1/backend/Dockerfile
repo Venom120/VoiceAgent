@@ -58,12 +58,25 @@ RUN chown -R appuser:appuser /app
 # This improves security by not running as root
 USER appuser
 
-# Pre-download any ML models or files the agent needs
-# This ensures the container is ready to run immediately without downloading
-# dependencies at runtime, which improves startup time and reliability
-RUN uv run src/agent.py download-files
+# Create a directory outside of /app to store downloaded ML models and cache.
+# Storing model files under /var/lib/voiceagent/cache keeps them separate from
+# the project bind mount (which overrides /app at runtime) and allows a named
+# Docker volume to persist them across container restarts.
+USER root
+RUN mkdir -p /var/lib/voiceagent/cache && chown -R appuser:appuser /var/lib/voiceagent
+USER appuser
 
-# Run the application using UV
-# UV will activate the virtual environment and run the agent.
-# The "start" command tells the worker to connect to LiveKit and begin waiting for jobs.
+# Copy an entrypoint script that will run the download step at container start
+# (after bind mounts are applied) and then start the agent. Downloading at
+# runtime ensures model files aren't hidden by the host bind mount of /app.
+COPY --chown=appuser:appuser entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+# Allow mounting the project folder at runtime so local edits are
+# reflected inside the container. Keep the virtualenv or installed
+# files used by the runtime in a separate volume so they aren't
+# lost/overwritten by a host bind mount.
+VOLUME ["/app"]
+
+ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["uv", "run", "src/agent.py", "start"]

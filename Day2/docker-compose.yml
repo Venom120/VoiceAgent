@@ -6,6 +6,8 @@ services:
     container_name: voiceagent-backend
     env_file:
       - ./backend/.env.prod
+    environment:
+      - TZ=Asia/Kolkata
     networks:
       - local
     volumes:
@@ -28,6 +30,8 @@ services:
       - "3000:3000"
     env_file:
       - ./frontend/.env.prod
+    environment:
+      - TZ=Asia/Kolkata
     networks:
       - local
     volumes:
