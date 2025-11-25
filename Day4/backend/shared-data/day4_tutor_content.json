@@ -1,0 +1,32 @@
+[
+  {
+    "id": "variables",
+    "title": "Variables",
+    "summary": "Variables are like containers that store information in your program. Think of them as labeled boxes where you can put values and retrieve them later. For example, you might have a variable called 'age' that stores the number 25, or a variable called 'name' that stores the text 'John'. Variables are useful because they let you reuse values throughout your code and make your program more flexible. Instead of typing the same number or text over and over, you just use the variable name, and if you need to change the value later, you only have to change it in one place.",
+    "sample_question": "What is a variable and why is it useful? Can you give me an example of how you might use a variable in a program?"
+  },
+  {
+    "id": "loops",
+    "title": "Loops",
+    "summary": "Loops are programming structures that let you repeat actions multiple times without writing the same code over and over. There are two main types: for loops and while loops. A for loop runs a specific number of times, like saying 'do this 10 times' or 'do this for each item in a list'. A while loop keeps running as long as a certain condition is true, like 'keep asking for input until the user types quit'. Loops save you from repetitive coding and make your programs much more efficient. For example, if you want to print numbers 1 through 100, you'd use a loop instead of writing 100 separate print statements.",
+    "sample_question": "Explain the difference between a for loop and a while loop. When would you use each one?"
+  },
+  {
+    "id": "functions",
+    "title": "Functions",
+    "summary": "Functions are reusable blocks of code that perform a specific task. They're like mini-programs within your program. You give a function a name, and whenever you need to do that task, you just call the function by its name instead of writing all the code again. Functions can take inputs, called parameters, and they can return outputs. For example, you might have a function called 'calculate_area' that takes length and width as inputs and returns the area. Functions help organize your code, make it easier to read, reduce repetition, and make it easier to fix bugs because you only have to fix the code in one place.",
+    "sample_question": "What is a function and what are its benefits? How do parameters and return values work?"
+  },
+  {
+    "id": "conditionals",
+    "title": "Conditionals",
+    "summary": "Conditionals are statements that let your program make decisions and choose different paths based on certain conditions. The most common conditional is the if statement, which says 'if this condition is true, do this action'. You can also add else to say 'otherwise do this instead', and elif to check multiple conditions in order. For example, you might write code that says 'if temperature is above 30, print it's hot, else if temperature is above 20, print it's warm, else print it's cold'. Conditionals make your programs intelligent and responsive to different situations.",
+    "sample_question": "How do conditionals work in programming? Explain if, elif, and else statements with an example."
+  },
+  {
+    "id": "data_types",
+    "title": "Data Types",
+    "summary": "Data types define what kind of information a variable can hold. The main data types are integers for whole numbers like 5 or 100, floats for decimal numbers like 3.14 or 2.5, strings for text like 'hello' or 'John Doe', and booleans for true or false values. Different data types support different operations. You can add numbers together but you can't directly add a number to text. Understanding data types is important because using the wrong type can cause errors. Most programming languages will either convert between types automatically or require you to explicitly convert them.",
+    "sample_question": "What are the main data types in programming and why do they matter? Give examples of each type."
+  }
+]
