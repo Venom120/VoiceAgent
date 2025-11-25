@@ -11,28 +11,18 @@ const CONTAINER_MOTION_PROPS = {
   variants: {
     hidden: {
       opacity: 0,
-      transition: {
-        ease: 'easeOut',
-        duration: 0.3,
-        staggerChildren: 0.1,
-        staggerDirection: -1,
-      },
     },
     visible: {
       opacity: 1,
-      transition: {
-        delay: 0.2,
-        ease: 'easeOut',
-        duration: 0.3,
-        stagerDelay: 0.2,
-        staggerChildren: 0.1,
-        staggerDirection: 1,
-      },
     },
   },
   initial: 'hidden',
   animate: 'visible',
   exit: 'hidden',
+  transition: {
+    duration: 0.3,
+    ease: 'easeOut',
+  },
 };
 
 const MESSAGE_MOTION_PROPS = {
@@ -46,6 +36,14 @@ const MESSAGE_MOTION_PROPS = {
       translateY: 0,
     },
   },
+  initial: 'hidden',
+  animate: 'visible',
+  exit: 'hidden',
+  transition: {
+    duration: 0.2,
+    ease: 'easeOut',
+  },
+  layout: true,
 };
 
 interface ChatTranscriptProps {
@@ -58,29 +56,35 @@ export function ChatTranscript({
   messages = [],
   ...props
 }: ChatTranscriptProps & Omit<HTMLMotionProps<'div'>, 'ref'>) {
+  console.log('💬 ChatTranscript render:', { hidden, messageCount: messages.length });
+  
+  if (hidden) {
+    return null;
+  }
+  
   return (
-    <AnimatePresence>
-      {!hidden && (
-        <MotionContainer {...CONTAINER_MOTION_PROPS} {...props}>
-          {messages.map(({ id, timestamp, from, message, editTimestamp }: ReceivedChatMessage) => {
-            const locale = navigator?.language ?? 'en-US';
-            const messageOrigin = from?.isLocal ? 'local' : 'remote';
-            const hasBeenEdited = !!editTimestamp;
+    <MotionContainer {...CONTAINER_MOTION_PROPS} {...props}>
+      <AnimatePresence initial={false} mode="popLayout">
+        {messages.map(({ id, timestamp, from, message, editTimestamp }: ReceivedChatMessage) => {
+          const locale = navigator?.language ?? 'en-US';
+          const messageOrigin = from?.isLocal ? 'local' : 'remote';
+          const hasBeenEdited = !!editTimestamp;
 
-            return (
-              <MotionChatEntry
-                key={id}
-                locale={locale}
-                timestamp={timestamp}
-                message={message}
-                messageOrigin={messageOrigin}
-                hasBeenEdited={hasBeenEdited}
-                {...MESSAGE_MOTION_PROPS}
-              />
-            );
-          })}
-        </MotionContainer>
-      )}
-    </AnimatePresence>
+          console.log('📝 Rendering message:', { id, message, messageOrigin });
+
+          return (
+            <MotionChatEntry
+              key={id}
+              locale={locale}
+              timestamp={timestamp}
+              message={message}
+              messageOrigin={messageOrigin}
+              hasBeenEdited={hasBeenEdited}
+              {...MESSAGE_MOTION_PROPS}
+            />
+          );
+        })}
+      </AnimatePresence>
+    </MotionContainer>
   );
 }

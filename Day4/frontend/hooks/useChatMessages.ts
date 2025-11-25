@@ -7,6 +7,7 @@ import {
   useRoomContext,
   useTranscriptions,
 } from '@livekit/components-react';
+import { useSession } from '@/components/app/session-provider';
 
 function transcriptionToChatMessage(textStream: TextStreamData, room: Room): ReceivedChatMessage {
   return {
@@ -26,14 +27,21 @@ export function useChatMessages() {
   const chat = useChat();
   const room = useRoomContext();
   const transcriptions: TextStreamData[] = useTranscriptions();
+  const { isSessionActive } = useSession();
 
   const mergedTranscriptions = useMemo(() => {
+    // When a session is not active we want the frontend transcript cleared while
+    // leaving backend persistence intact. Return empty list when not active.
+    if (!isSessionActive) {
+      return [];
+    }
+
     const merged: Array<ReceivedChatMessage> = [
       ...transcriptions.map((transcription) => transcriptionToChatMessage(transcription, room)),
       ...chat.chatMessages,
     ];
     return merged.sort((a, b) => a.timestamp - b.timestamp);
-  }, [transcriptions, chat.chatMessages, room]);
+  }, [transcriptions, chat.chatMessages, room, isSessionActive]);
 
   return mergedTranscriptions;
 }

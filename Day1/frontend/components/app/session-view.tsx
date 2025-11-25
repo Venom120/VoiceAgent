@@ -5,6 +5,7 @@ import { motion } from 'motion/react';
 import type { AppConfig } from '@/app-config';
 import { ChatTranscript } from '@/components/app/chat-transcript';
 import { PreConnectMessage } from '@/components/app/preconnect-message';
+import { useSession } from '@/components/app/session-provider';
 import { TileLayout } from '@/components/app/tile-layout';
 import {
   AgentControlBar,
@@ -72,6 +73,12 @@ export const SessionView = ({
   const messages = useChatMessages();
   const [chatOpen, setChatOpen] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const { isSessionActive } = useSession();
+
+  // Debug: Log messages
+  useEffect(() => {
+    console.log('📨 Messages updated:', messages.length, messages);
+  }, [messages]);
 
   const controls: ControlBarControls = {
     leave: true,
@@ -82,25 +89,43 @@ export const SessionView = ({
   };
 
   useEffect(() => {
-    const lastMessage = messages.at(-1);
-    const lastMessageIsLocal = lastMessage?.from?.isLocal === true;
-
-    if (scrollAreaRef.current && lastMessageIsLocal) {
-      scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
+    // Auto-scroll to bottom when new messages arrive and chat is open
+    if (scrollAreaRef.current && chatOpen && messages.length > 0) {
+      // Small delay to ensure message is rendered
+      setTimeout(() => {
+        if (scrollAreaRef.current) {
+          scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
+        }
+      }, 100);
     }
-  }, [messages]);
+  }, [messages, chatOpen]);
+
+  // Close chat when session ends
+  useEffect(() => {
+    if (!isSessionActive) {
+      setChatOpen(false);
+    }
+  }, [isSessionActive]);
 
   return (
     <section className="bg-background relative z-10 h-full w-full overflow-hidden" {...props}>
       {/* Chat Transcript */}
       <div
         className={cn(
-          'fixed inset-0 grid grid-cols-1 grid-rows-1',
+          'fixed inset-0 z-20 grid grid-cols-1 grid-rows-1',
           !chatOpen && 'pointer-events-none'
         )}
       >
-        <Fade top className="absolute inset-x-4 top-0 h-40" />
-        <ScrollArea ref={scrollAreaRef} className="px-4 pt-40 pb-[150px] md:px-6 md:pb-[180px]">
+        {/* Backdrop */}
+        {chatOpen && (
+          <div className="pointer-events-none absolute inset-0 z-10 bg-black/60 backdrop-blur-sm" />
+        )}
+        
+        {/* Gradient Fades */}
+        <Fade top className="absolute inset-x-4 top-0 z-30 h-40" />
+        
+        {/* Scrollable Chat Area */}
+        <ScrollArea ref={scrollAreaRef} className="relative z-20 px-4 pt-40 pb-[150px] md:px-6 md:pb-[180px]">
           <ChatTranscript
             hidden={!chatOpen}
             messages={messages}
@@ -120,7 +145,7 @@ export const SessionView = ({
         {appConfig.isPreConnectBufferEnabled && (
           <PreConnectMessage messages={messages} className="pb-4" />
         )}
-        <div className="bg-background relative mx-auto max-w-2xl pb-3 md:pb-12">
+        <div className="relative mx-auto max-w-2xl pb-3 md:pb-12">
           <Fade bottom className="absolute inset-x-0 top-0 h-4 -translate-y-full" />
           <AgentControlBar controls={controls} onChatOpenChange={setChatOpen} />
         </div>
