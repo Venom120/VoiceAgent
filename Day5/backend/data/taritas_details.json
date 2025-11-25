@@ -1,0 +1,114 @@
+{
+  "company": {
+    "name": "Taritas Software Solutions Pvt. Ltd.",
+    "industry": "IT Consulting & Software Development",
+    "description": "Taritas is an authorized Xamarin certified IT consulting firm in Central India, specializing in custom software development, mobile app development, and UI design. Founded in 2012 and headquartered in Jabalpur, Madhya Pradesh, with offices in Lincoln, Bangalore, and Jabalpur.",
+    "focus_areas": [
+      "Custom Software Development",
+      "Mobile App Development",
+      "Blockchain Consulting",
+      "UI/UX Design",
+      "Application Consulting",
+      "Cross-Platform Development"
+    ]
+  },
+  "faqs": [
+    {
+      "question": "What does Taritas Software Solutions do?",
+      "answer": "Taritas is a software outsourcing company that provides custom software development, mobile app development, UI design, blockchain consulting services, and application consulting. We help businesses build tailored software solutions to meet their specific needs.",
+      "category": "company"
+    },
+    {
+      "question": "Where is Taritas located?",
+      "answer": "Taritas is headquartered in Jabalpur, Madhya Pradesh at IT Park Bargi Hills. We also have offices in Lincoln, England and Bangalore, India, allowing us to serve clients globally while maintaining strong roots in Central India.",
+      "category": "company"
+    },
+    {
+      "question": "What types of mobile app development do you offer?",
+      "answer": "We specialize in cross-platform mobile app development using technologies like Xamarin, React Native, and Flutter. This allows us to build apps that work seamlessly on both iOS and Android platforms, reducing development time and costs while maintaining native performance.",
+      "category": "products"
+    },
+    {
+      "question": "Do you provide custom software development services?",
+      "answer": "Yes, custom software development is one of our core services. We create tailored software solutions from scratch based on your specific business requirements, whether it's enterprise applications, web platforms, SaaS products, or internal business tools.",
+      "category": "products"
+    },
+    {
+      "question": "What is blockchain consulting and do you offer it?",
+      "answer": "Yes, we offer blockchain consulting services. We help businesses understand blockchain technology and implement blockchain-based solutions for use cases like smart contracts, decentralized applications, supply chain tracking, and secure transaction systems.",
+      "category": "products"
+    },
+    {
+      "question": "What industries does Taritas serve?",
+      "answer": "We serve a wide range of industries including healthcare, finance, retail, manufacturing, education, logistics, and startups. Our team has experience delivering solutions across different sectors and can adapt to industry-specific requirements.",
+      "category": "solutions"
+    },
+    {
+      "question": "How much does it cost to develop a mobile app with Taritas?",
+      "answer": "Our minimum project size starts at $1,000 USD. The exact cost depends on the app's complexity, features, platform requirements, and timeline. We offer competitive hourly rates under $25 per hour. We can provide a detailed quote after understanding your specific requirements.",
+      "category": "pricing"
+    },
+    {
+      "question": "What is your typical project timeline?",
+      "answer": "Project timelines vary based on complexity. A simple mobile app can take 2-3 months, while complex enterprise software may take 6-12 months. We follow agile methodology with regular sprints and milestones, providing transparency throughout the development process.",
+      "category": "implementation"
+    },
+    {
+      "question": "What technologies do you work with?",
+      "answer": "We work with a wide range of modern technologies including JavaScript, HTML, PHP, Python, React, Angular, Node.js, .NET, Xamarin, React Native, Flutter, various databases, cloud platforms like AWS and Azure, and blockchain technologies.",
+      "category": "technology"
+    },
+    {
+      "question": "Do you provide UI/UX design services?",
+      "answer": "Yes, UI/UX design is a key part of our service offering. We create user-centric designs that are visually appealing, intuitive, and optimized for user engagement. Our design team works closely with developers to ensure seamless implementation.",
+      "category": "products"
+    },
+    {
+      "question": "How many people work at Taritas?",
+      "answer": "We have a team of 50-249 employees, which includes developers, designers, project managers, and consultants. This size allows us to handle multiple projects simultaneously while maintaining quality and personalized attention to each client.",
+      "category": "company"
+    },
+    {
+      "question": "Do you offer post-launch support and maintenance?",
+      "answer": "Absolutely. We provide comprehensive post-launch support including bug fixes, performance monitoring, feature updates, security patches, and technical assistance. We offer various maintenance packages based on your needs.",
+      "category": "services"
+    },
+    {
+      "question": "Can you work with our existing development team?",
+      "answer": "Yes, we can integrate with your existing team and processes. We offer flexible engagement models including dedicated resources, team augmentation, and collaborative development. We adapt to your workflow and communication preferences.",
+      "category": "solutions"
+    },
+    {
+      "question": "What makes Taritas different from other software companies?",
+      "answer": "Taritas stands out with our Xamarin certification, 13 years of proven experience since 2012, tailored approach to each project, competitive pricing, global presence with local expertise in Central India, and strong track record of building lasting client partnerships.",
+      "category": "company"
+    },
+    {
+      "question": "How do I get started with Taritas?",
+      "answer": "Getting started is easy! You can reach us at +44 20 8895 6443 or visit our office at IT Park Bargi Hills, Jabalpur. We'll schedule a consultation to understand your requirements, provide a proposal with timeline and cost estimates, and once approved, we'll kick off the project with a dedicated team.",
+      "category": "services"
+    }
+  ],
+  "use_cases": [
+    {
+      "industry": "Healthcare",
+      "description": "Developed custom patient management systems and mobile health apps for healthcare providers"
+    },
+    {
+      "industry": "E-commerce",
+      "description": "Built cross-platform mobile shopping apps with seamless payment integration"
+    },
+    {
+      "industry": "Fintech",
+      "description": "Created secure blockchain-based transaction systems for financial services"
+    }
+  ],
+  "target_customers": [
+    "Startups needing MVP development",
+    "SMEs requiring custom software solutions",
+    "Enterprises seeking mobile app development",
+    "Businesses exploring blockchain technology",
+    "Companies needing UI/UX redesign",
+    "Organizations requiring software outsourcing"
+  ]
+}

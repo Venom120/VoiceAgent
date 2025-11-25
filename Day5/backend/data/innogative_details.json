@@ -1,0 +1,118 @@
+{
+  "company": {
+    "name": "Innogative",
+    "industry": "IT Services & Digital Marketing",
+    "description": "Innogative is your gateway to innovation, applying technology in unconventional ways for digital marketing communications. Founded in 2022 and based in Jabalpur, Madhya Pradesh, we transform ideas into impactful digital solutions - from websites to apps and custom software.",
+    "focus_areas": [
+      "Web Development",
+      "App Development",
+      "Digital Marketing",
+      "Social Media Marketing",
+      "Social Media Management",
+      "Graphic Designing",
+      "Content Creation",
+      "Influencer Marketing",
+      "SEO"
+    ]
+  },
+  "faqs": [
+    {
+      "question": "What does Innogative do?",
+      "answer": "Innogative is a full-service digital agency that provides web development, mobile app development, digital marketing, social media marketing and management, graphic design, content creation, and influencer marketing. We help businesses build strong online presence and achieve digital growth.",
+      "category": "company"
+    },
+    {
+      "question": "Where is Innogative located?",
+      "answer": "We are located at 3rd Floor, M.P. Audyogik Kendra Vikas Nigam, Railway Station Road, Jabalpur, Madhya Pradesh 482001. We're also associated with Jabalpur Incubation Center at Udyog Bhawan. You can reach us at +91 7024298174 or contact@innogative.com.",
+      "category": "company"
+    },
+    {
+      "question": "What web development services do you provide?",
+      "answer": "We create responsive, user-friendly, and high-performing websites including corporate websites, e-commerce platforms, web applications, CMS-based sites, and custom web solutions. We focus on modern design, seamless functionality, and optimal user experience.",
+      "category": "products"
+    },
+    {
+      "question": "Do you develop mobile applications?",
+      "answer": "Yes, we design and develop scalable and seamless mobile applications for both iOS and Android platforms. We build native apps, cross-platform apps, and progressive web apps based on your business needs and target audience.",
+      "category": "products"
+    },
+    {
+      "question": "What digital marketing services do you offer?",
+      "answer": "Our digital marketing services include SEO (search engine optimization), PPC advertising, content marketing, email marketing, conversion rate optimization, and comprehensive strategies to maximize your online reach and ROI. We use data-driven approaches to deliver measurable results.",
+      "category": "products"
+    },
+    {
+      "question": "Can you manage our social media accounts?",
+      "answer": "Absolutely! We provide end-to-end social media management including content creation, post scheduling, community engagement, analytics reporting, and reputation management across platforms like Facebook, Instagram, LinkedIn, Twitter, and YouTube. We help build and maintain a strong online presence.",
+      "category": "products"
+    },
+    {
+      "question": "What is your approach to social media marketing?",
+      "answer": "We drive engagement, leads, and conversions through strategic social media campaigns. Our approach involves audience research, content strategy, creative development, targeted advertising, influencer collaborations, and continuous optimization based on performance metrics.",
+      "category": "solutions"
+    },
+    {
+      "question": "Do you provide graphic design services?",
+      "answer": "Yes, our graphic design team crafts visually appealing creatives that resonate with your audience. This includes logo design, brand identity, social media graphics, marketing collateral, infographics, presentations, and all types of visual content.",
+      "category": "products"
+    },
+    {
+      "question": "What is content creation and how can it help my business?",
+      "answer": "We produce impactful and SEO-optimized content for digital platforms including blog posts, articles, website copy, social media content, video scripts, and more. Quality content helps improve search rankings, engage audiences, establish authority, and drive conversions.",
+      "category": "products"
+    },
+    {
+      "question": "Do you offer influencer marketing services?",
+      "answer": "Yes, we connect your brand with the right influencers to amplify reach and credibility. We handle influencer identification, outreach, campaign planning, content coordination, and performance tracking to ensure your brand message reaches the right audience authentically.",
+      "category": "products"
+    },
+    {
+      "question": "How much do your services cost?",
+      "answer": "Pricing varies based on the service and scope of work. For social media marketing, basic plans start from Rs. 5,000 per month, while premium plans start from Rs. 25,000 per month. Web development and app development are quoted based on requirements. We offer customized packages to fit different budgets.",
+      "category": "pricing"
+    },
+    {
+      "question": "How often will I receive reports and updates?",
+      "answer": "We provide regular weekly and monthly reports showing campaign performance, analytics, and progress. However, we can customize reporting frequency based on your preferences. Transparency and communication are core to our client relationships.",
+      "category": "services"
+    },
+    {
+      "question": "Can you work from our office?",
+      "answer": "Yes, if both parties agree, we can send team members to work from your office location in Jabalpur. This collaborative approach can be beneficial for projects requiring close coordination and integration with your in-house team.",
+      "category": "services"
+    },
+    {
+      "question": "What makes Innogative different?",
+      "answer": "Innogative stands out with our unconventional approach - we mine actionable insights and use technology to precisely deliver the right message to the right audience. We're young, innovative, founded in 2022, backed by Jabalpur Incubation Center, with a team of skilled developers and marketers who are passionate about delivering results.",
+      "category": "company"
+    },
+    {
+      "question": "What industries do you work with?",
+      "answer": "We work with startups, SMEs, and established businesses across various industries including e-commerce, education, healthcare, real estate, hospitality, retail, professional services, and local businesses in Madhya Pradesh looking to grow their digital presence.",
+      "category": "solutions"
+    }
+  ],
+  "use_cases": [
+    {
+      "industry": "Local Businesses",
+      "description": "Helped local Jabalpur businesses establish online presence with websites and social media marketing"
+    },
+    {
+      "industry": "Startups",
+      "description": "Supported JIC-incubated startups with complete digital solutions from branding to app development"
+    },
+    {
+      "industry": "E-commerce",
+      "description": "Built online stores with integrated social media marketing to drive sales and customer engagement"
+    }
+  ],
+  "target_customers": [
+    "Startups needing digital presence",
+    "SMEs looking for web/app development",
+    "Businesses requiring social media management",
+    "Brands needing influencer marketing",
+    "Companies seeking comprehensive digital marketing",
+    "Local Jabalpur businesses going digital",
+    "Organizations needing content and design services"
+  ]
+}
