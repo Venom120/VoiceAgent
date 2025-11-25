@@ -1,0 +1,115 @@
+{
+  "company": {
+    "name": "Ericsson India",
+    "industry": "Telecommunications & Enterprise Connectivity",
+    "description": "Ericsson is a global leader in telecommunications technology and services, providing end-to-end 5G platforms, private networks, IoT solutions, and enterprise connectivity to help businesses transform their operations.",
+    "focus_areas": [
+      "5G Networks",
+      "Private 5G Solutions",
+      "Enterprise Wireless",
+      "IoT & Industrial Automation",
+      "Network APIs",
+      "Cloud & Edge Computing"
+    ]
+  },
+  "faqs": [
+    {
+      "question": "What does Ericsson do?",
+      "answer": "Ericsson provides end-to-end telecommunications solutions including 5G networks, private 5G networks, enterprise wireless connectivity, IoT platforms, and network APIs. We help telecom operators and enterprises modernize their networks and enable digital transformation across industries like manufacturing, logistics, ports, and healthcare.",
+      "category": "company"
+    },
+    {
+      "question": "What is Private 5G and how does it work?",
+      "answer": "Private 5G is a dedicated cellular network designed for enterprises that need robust, secure connectivity where Wi-Fi falls short. It offers ultra-low latency, high bandwidth, and support for massive IoT deployments. Private 5G integrates seamlessly with existing IT systems and industrial IoT platforms, providing broader coverage than Wi-Fi for warehouses, manufacturing plants, and outdoor spaces.",
+      "category": "products"
+    },
+    {
+      "question": "What industries can benefit from Ericsson's solutions?",
+      "answer": "Our solutions benefit a wide range of industries including manufacturing, logistics and ports, healthcare, retail, smart cities, agriculture, and mining. We've worked with clients like Verizon Business for autonomous trucking at ports, Hitachi for manufacturing automation, and Lufthansa Industry Solutions for logistics transformation.",
+      "category": "solutions"
+    },
+    {
+      "question": "What are the key benefits of Private 5G over Wi-Fi?",
+      "answer": "Private 5G offers several advantages: broader coverage for large indoor and outdoor spaces, ultra-low latency for real-time applications, higher reliability and security with carrier-grade performance, support for massive IoT device connections, seamless mobility across coverage areas, and the ability to integrate with existing wired networks in a hybrid approach.",
+      "category": "products"
+    },
+    {
+      "question": "Do you have enterprise solutions for small to medium businesses?",
+      "answer": "Yes, we offer Ericsson Private 5G Compact, a CBRS-based solution designed for enterprises of all sizes that need robust connectivity in challenging operational settings. It's simplified for easier deployment and management through our NetCloud Manager cloud platform, making it accessible for businesses without extensive in-house 5G expertise.",
+      "category": "solutions"
+    },
+    {
+      "question": "What is your approach to network APIs and innovation?",
+      "answer": "We're leading the Aduna initiative in India with partners like Jio and Airtel to drive API-driven innovation. Network APIs allow developers and enterprises to access 5G network capabilities programmatically, enabling new use cases in edge computing, network slicing, and quality of service management. This opens up monetization opportunities and accelerates 5G adoption in the enterprise segment.",
+      "category": "technology"
+    },
+    {
+      "question": "How does Ericsson support IoT and industrial automation?",
+      "answer": "Our 5G platform is built on 3GPP standards and supports cellular IoT, enabling advanced automation in industrial settings. We provide programmable 5G systems that integrate with operational technology and IT infrastructure, allowing enterprises to deploy connected sensors, autonomous vehicles, robotics, and computer vision solutions powered by edge computing and AI/ML models.",
+      "category": "products"
+    },
+    {
+      "question": "What is the deployment timeline for Private 5G?",
+      "answer": "Deployment timelines vary based on the scale and complexity of your requirements. A typical Private 5G Compact deployment for a single facility can be completed in 4-8 weeks, while larger multi-site enterprise deployments may take 3-6 months. We provide end-to-end support including planning, installation, integration, and managed services to ensure smooth rollout.",
+      "category": "implementation"
+    },
+    {
+      "question": "How do you handle network security?",
+      "answer": "Security is fundamental to our solutions. We provide true zero-trust security architecture backed by 5G technology. This includes encrypted communications, network slicing for traffic isolation, secure authentication mechanisms, and continuous monitoring. Our Private 5G networks offer carrier-grade security that exceeds typical Wi-Fi implementations.",
+      "category": "security"
+    },
+    {
+      "question": "Can Private 5G coexist with our existing Wi-Fi network?",
+      "answer": "Absolutely. We design hybrid network solutions that allow Private 5G to complement your existing Wi-Fi and wired infrastructure. Our NetCloud Manager provides unified management across your entire enterprise wireless portfolio including 5G, Wireless WAN, and SASE, giving you a single pane of glass for network orchestration.",
+      "category": "implementation"
+    },
+    {
+      "question": "What kind of support and services do you provide?",
+      "answer": "We offer comprehensive support including pre-deployment network planning and site surveys, installation and integration services, training for your IT teams, managed network operations, 24/7 technical support, ongoing optimization, and regular software updates. We can also provide fully managed solutions where Ericsson handles all aspects of network operation.",
+      "category": "services"
+    },
+    {
+      "question": "How does pricing work? Is there a trial or pilot option?",
+      "answer": "Our pricing is customized based on your specific requirements including coverage area, number of devices, bandwidth needs, and service level. We typically structure pricing as CapEx for hardware and OpEx for software licenses and managed services. We do offer pilot programs and proof-of-concept deployments to help you validate the technology before full-scale rollout. I can connect you with our solutions architects to discuss a tailored proposal.",
+      "category": "pricing"
+    },
+    {
+      "question": "What is Fixed Wireless Access (FWA)?",
+      "answer": "Fixed Wireless Access uses 5G cellular technology to provide high-speed internet connectivity to homes and businesses as an alternative to fiber or cable. It's particularly useful in areas where wired infrastructure is expensive or unavailable, and for enterprises needing rapid deployment of reliable broadband connectivity.",
+      "category": "products"
+    },
+    {
+      "question": "How do you help with the transition from 4G to 5G?",
+      "answer": "Our end-to-end 5G platform is designed to evolve alongside your business strategy. We enable operators and enterprises to upgrade to 5G capabilities gradually while enhancing their existing 4G infrastructure, reducing risk and maximizing current investments. This includes software upgrades, spectrum management, and core network modernization.",
+      "category": "implementation"
+    },
+    {
+      "question": "What makes Ericsson different from other vendors?",
+      "answer": "Ericsson brings over 145 years of telecommunications expertise, global scale with local presence in India, proven 3GPP standards-based technology, real-world enterprise deployments across industries, comprehensive portfolio from radio to core to cloud, strong ecosystem partnerships, and commitment to innovation through R&D and initiatives like Aduna for API-driven solutions.",
+      "category": "company"
+    }
+  ],
+  "use_cases": [
+    {
+      "industry": "Manufacturing",
+      "description": "Hitachi deployed Ericsson's private 5G to enable groundbreaking computer vision solutions with AI/ML models for quality control and automation"
+    },
+    {
+      "industry": "Ports & Logistics",
+      "description": "Verizon Business and Ericsson built a private 5G network at Port of Virginia enabling autonomous trucking and smart port technology"
+    },
+    {
+      "industry": "Logistics",
+      "description": "Lufthansa Industry Solutions transformed their logistics operations with Ericsson's private 5G for real-time tracking and automation"
+    }
+  ],
+  "target_customers": [
+    "Large enterprises needing mission-critical connectivity",
+    "Manufacturing facilities requiring industrial automation",
+    "Logistics and warehouse operations",
+    "Ports and transportation hubs",
+    "Healthcare facilities",
+    "Smart city initiatives",
+    "Telecom operators looking to offer enterprise 5G services"
+  ]
+}
