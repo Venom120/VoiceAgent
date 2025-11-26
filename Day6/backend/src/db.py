@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from typing import Dict, List, Optional
 
-DB_PATH = Path(__file__).parent / "fraud_db.json"
+DB_PATH = Path(__file__).parent.parent / "data" / "fraud_db.json"
 
 
 def _read_db() -> List[Dict]:

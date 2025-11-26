@@ -1,0 +1,30 @@
+[
+  {
+    "userName": "John",
+    "securityIdentifier": "ABC123",
+    "cardEnding": "4242",
+    "transactionAmount": "$123.45",
+    "transactionName": "ABC Industry",
+    "transactionTime": "2025-11-25T14:32:00Z",
+    "transactionCategory": "e-commerce",
+    "transactionSource": "alibaba.com",
+    "securityQuestion": "What is the name of your first pet?",
+    "securityAnswer": "fluffy",
+    "status": "confirmed_safe",
+    "outcomeNote": "Customer confirmed transaction as legitimate."
+  },
+  {
+    "userName": "Alice",
+    "securityIdentifier": "XYZ789",
+    "cardEnding": "1111",
+    "transactionAmount": "$9.99",
+    "transactionName": "Example Store",
+    "transactionTime": "2025-11-24T09:12:00Z",
+    "transactionCategory": "subscription",
+    "transactionSource": "examplestore.com",
+    "securityQuestion": "What city were you born in?",
+    "securityAnswer": "metropolis",
+    "status": "confirmed_fraud",
+    "outcomeNote": "Customer reported transaction as fraudulent; card blocked and dispute opened (mock)."
+  }
+]
