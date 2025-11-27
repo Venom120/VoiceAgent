@@ -1,0 +1,343 @@
+[
+  {
+    "id": "bread_whole_wheat",
+    "name": "Whole Wheat Bread",
+    "category": "Bakery",
+    "brand": "Hearth",
+    "size": "1 loaf",
+    "units": "loaf",
+    "price": 3.49,
+    "tags": [
+      "vegan",
+      "bread",
+      "bakery"
+    ]
+  },
+  {
+    "id": "eggs_large",
+    "name": "Large Eggs (12)",
+    "category": "Dairy & Eggs",
+    "brand": "FarmFresh",
+    "size": "12",
+    "units": "count",
+    "price": 2.99,
+    "tags": [
+      "egg",
+      "protein"
+    ]
+  },
+  {
+    "id": "milk_whole",
+    "name": "Whole Milk",
+    "category": "Dairy & Eggs",
+    "brand": "DairyPure",
+    "size": "1L",
+    "units": "liter",
+    "price": 1.79,
+    "tags": [
+      "dairy",
+      "milk"
+    ]
+  },
+  {
+    "id": "peanut_butter",
+    "name": "Peanut Butter",
+    "category": "Pantry",
+    "brand": "CrunchyCo",
+    "size": "16oz",
+    "units": "jar",
+    "price": 4.25,
+    "tags": [
+      "spread",
+      "nuts"
+    ]
+  },
+  {
+    "id": "jelly_grape",
+    "name": "Grape Jelly",
+    "category": "Pantry",
+    "brand": "SweetSpread",
+    "size": "12oz",
+    "units": "jar",
+    "price": 2.49,
+    "tags": [
+      "spread",
+      "sweet"
+    ]
+  },
+  {
+    "id": "pasta_spaghetti",
+    "name": "Spaghetti Pasta",
+    "category": "Pantry",
+    "brand": "Pastificio",
+    "size": "500g",
+    "units": "pack",
+    "price": 1.99,
+    "tags": [
+      "pasta",
+      "italian"
+    ]
+  },
+  {
+    "id": "marinara_sauce",
+    "name": "Marinara Sauce",
+    "category": "Pantry",
+    "brand": "TomatoGood",
+    "size": "24oz",
+    "units": "jar",
+    "price": 3.59,
+    "tags": [
+      "sauce",
+      "italian",
+      "vegan"
+    ]
+  },
+  {
+    "id": "apple_gala",
+    "name": "Gala Apples (3)",
+    "category": "Produce",
+    "brand": "Orchard",
+    "size": "3",
+    "units": "count",
+    "price": 1.29,
+    "tags": [
+      "fruit",
+      "snack"
+    ]
+  },
+  {
+    "id": "cheddar_sliced",
+    "name": "Cheddar Cheese Slices",
+    "category": "Dairy & Eggs",
+    "brand": "DairyGold",
+    "size": "8oz",
+    "units": "pack",
+    "price": 2.99,
+    "tags": [
+      "cheese",
+      "dairy"
+    ]
+  },
+  {
+    "id": "chips_salty",
+    "name": "Salted Potato Chips",
+    "category": "Snacks",
+    "brand": "CrispCo",
+    "size": "200g",
+    "units": "bag",
+    "price": 2.49,
+    "tags": [
+      "snack",
+      "chips"
+    ]
+  },
+  {
+    "id": "sandwich_turkey",
+    "name": "Turkey Sandwich (Prepared)",
+    "category": "Prepared Food",
+    "brand": "Corner Deli",
+    "size": "1",
+    "units": "item",
+    "price": 6.99,
+    "tags": [
+      "prepared",
+      "meat"
+    ]
+  },
+  {
+    "id": "yogurt_greek",
+    "name": "Greek Yogurt",
+    "category": "Dairy & Eggs",
+    "brand": "Yummi",
+    "size": "5.3oz",
+    "units": "cup",
+    "price": 1.19,
+    "tags": [
+      "dairy",
+      "snack"
+    ]
+  },
+  {
+    "id": "banana",
+    "name": "Banana (1)",
+    "category": "Produce",
+    "brand": "Farm",
+    "size": "1",
+    "units": "count",
+    "price": 0.39,
+    "tags": [
+      "fruit",
+      "snack"
+    ]
+  },
+  {
+    "id": "butter_unsalted",
+    "name": "Unsalted Butter",
+    "category": "Dairy & Eggs",
+    "brand": "Creamery",
+    "size": "8oz",
+    "units": "pack",
+    "price": 2.79,
+    "tags": [
+      "dairy",
+      "baking"
+    ]
+  },
+  {
+    "id": "tomato",
+    "name": "Tomato (1)",
+    "category": "Produce",
+    "brand": "Farm",
+    "size": "1",
+    "units": "count",
+    "price": 0.69,
+    "tags": [
+      "vegetable",
+      "salad"
+    ]
+  },
+  {
+    "id": "olive_oil_evoo",
+    "name": "Extra Virgin Olive Oil",
+    "category": "Pantry",
+    "brand": "Oliva",
+    "size": "500ml",
+    "units": "bottle",
+    "price": 6.99,
+    "tags": [
+      "oil",
+      "pantry"
+    ]
+  },
+  {
+    "id": "canned_tomatoes_14oz",
+    "name": "Diced Tomatoes (No Salt Added)",
+    "category": "Pantry",
+    "brand": "TomatoGood",
+    "size": "14oz",
+    "units": "can",
+    "price": 1.29,
+    "tags": [
+      "canned",
+      "tomato",
+      "pantry"
+    ]
+  },
+  {
+    "id": "rice_basmati_1kg",
+    "name": "Basmati Rice",
+    "category": "Pantry",
+    "brand": "GrainHouse",
+    "size": "1kg",
+    "units": "bag",
+    "price": 3.49,
+    "tags": [
+      "rice",
+      "pantry"
+    ]
+  },
+  {
+    "id": "sugar_white_2kg",
+    "name": "White Granulated Sugar",
+    "category": "Pantry",
+    "brand": "SweetCo",
+    "size": "2kg",
+    "units": "bag",
+    "price": 2.99,
+    "tags": [
+      "baking",
+      "pantry"
+    ]
+  },
+  {
+    "id": "flour_all_purpose_2lb",
+    "name": "All-Purpose Flour",
+    "category": "Pantry",
+    "brand": "BakeWell",
+    "size": "2lb",
+    "units": "bag",
+    "price": 1.99,
+    "tags": [
+      "baking",
+      "pantry"
+    ]
+  },
+  {
+    "id": "salt_table_26oz",
+    "name": "Table Salt",
+    "category": "Groceries",
+    "brand": "PureSalt",
+    "size": "26oz",
+    "units": "container",
+    "price": 1.49,
+    "tags": [
+      "seasoning",
+      "pantry"
+    ]
+  },
+  {
+    "id": "garlic_bulb",
+    "name": "Garlic (1 bulb)",
+    "category": "Produce",
+    "brand": "Farm",
+    "size": "1",
+    "units": "bulb",
+    "price": 0.39,
+    "tags": [
+      "produce",
+      "flavor"
+    ]
+  },
+  {
+    "id": "onion_yellow_1lb",
+    "name": "Yellow Onions (1 lb)",
+    "category": "Produce",
+    "brand": "Farm",
+    "size": "1lb",
+    "units": "bag",
+    "price": 1.29,
+    "tags": [
+      "produce",
+      "cooking"
+    ]
+  },
+  {
+    "id": "chicken_breast_1lb",
+    "name": "Boneless Skinless Chicken Breast (1 lb)",
+    "category": "Meat",
+    "brand": "PoultryCo",
+    "size": "1lb",
+    "units": "pack",
+    "price": 5.99,
+    "tags": [
+      "meat",
+      "protein"
+    ]
+  },
+  {
+    "id": "frozen_peas_1lb",
+    "name": "Frozen Peas",
+    "category": "Frozen",
+    "brand": "FrostFresh",
+    "size": "1lb",
+    "units": "bag",
+    "price": 1.99,
+    "tags": [
+      "frozen",
+      "vegetable"
+    ]
+  },
+  {
+    "id": "soy_sauce_150ml",
+    "name": "Soy Sauce",
+    "category": "Pantry",
+    "brand": "SoyGood",
+    "size": "150ml",
+    "units": "bottle",
+    "price": 2.19,
+    "tags": [
+      "condiment",
+      "asian"
+    ]
+  }
+]

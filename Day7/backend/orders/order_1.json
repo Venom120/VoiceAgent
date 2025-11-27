@@ -1,0 +1,38 @@
+{
+  "order_id": 1,
+  "timestamp": "2025-11-27T20:10:59.618836Z",
+  "customer_name": "Jonathan",
+  "customer_address": "seventh Street",
+  "status": "received",
+  "total": 29.14,
+  "items": [
+    {
+      "id": "banana",
+      "name": "Banana (1)",
+      "unit_price": 0.39,
+      "quantity": 12,
+      "line_total": 4.68
+    },
+    {
+      "id": "pasta_spaghetti",
+      "name": "Spaghetti Pasta",
+      "unit_price": 1.99,
+      "quantity": 1,
+      "line_total": 1.99
+    },
+    {
+      "id": "olive_oil_evoo",
+      "name": "Extra Virgin Olive Oil",
+      "unit_price": 6.99,
+      "quantity": 1,
+      "line_total": 6.99
+    },
+    {
+      "id": "apple_gala",
+      "name": "Gala Apples (3)",
+      "unit_price": 1.29,
+      "quantity": 12,
+      "line_total": 15.48
+    }
+  ]
+}
