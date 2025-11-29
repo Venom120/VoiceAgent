@@ -56,7 +56,12 @@ export const ChatEntry = ({
             : 'bg-muted text-foreground mr-auto'
         )}
       >
-        {message}
+        {message.split('\n').map((line, i) => (
+          <React.Fragment key={i}>
+            {line}
+            {i < message.split('\n').length - 1 && <br />}
+          </React.Fragment>
+        ))}
       </span>
     </li>
   );

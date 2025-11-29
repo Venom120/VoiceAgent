@@ -159,3 +159,29 @@
     }
   }
 }
+
+/* Chat background images: desktop (landscape) and mobile (portrait)
+   Use a CSS variable for the URL so we can override per-media-query reliably. */
+:root {
+  --chat-bg: url('/bg-desktop.png');
+}
+
+@media (max-width: 768px) {
+  :root {
+    --chat-bg: url('/bg-mobile.png');
+  }
+}
+
+.chat-background {
+  background-image: var(--chat-bg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Mobile tweak: prefer top-centered composition */
+@media (max-width: 768px) {
+  .chat-background {
+    background-position: center top;
+  }
+}

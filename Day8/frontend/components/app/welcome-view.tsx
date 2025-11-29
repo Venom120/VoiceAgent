@@ -33,8 +33,16 @@ export const WelcomeView = ({
       <section className="bg-background flex flex-col items-center justify-center text-center">
         <WelcomeImage />
 
+        <h1 className="text-foreground text-3xl font-bold mb-2">
+          🎲 D&D GAME MASTER
+        </h1>
+
         <p className="text-foreground max-w-prose pt-1 leading-6 font-medium">
-          Chat live with your voice AI agent
+          Embark on an epic fantasy adventure with your AI Game Master
+        </p>
+
+        <p className="text-muted-foreground max-w-md pt-2 text-sm leading-5">
+          Speak your actions aloud and watch your story unfold. Face challenges, meet mysterious characters, and make choices that shape your destiny.
         </p>
 
         <Button variant="primary" size="lg" onClick={onStartCall} className="mt-6 w-64 font-mono">

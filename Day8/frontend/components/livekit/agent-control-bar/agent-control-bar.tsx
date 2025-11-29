@@ -3,7 +3,7 @@
 import { type HTMLAttributes, useCallback, useState } from 'react';
 import { Track } from 'livekit-client';
 import { useChat, useRemoteParticipants } from '@livekit/components-react';
-import { ChatTextIcon, PhoneDisconnectIcon } from '@phosphor-icons/react/dist/ssr';
+import { ChatTextIcon, PhoneDisconnectIcon, ArrowClockwise } from '@phosphor-icons/react/dist/ssr';
 import { useSession } from '@/components/app/session-provider';
 import { TrackToggle } from '@/components/livekit/agent-control-bar/track-toggle';
 import { Button } from '@/components/livekit/button';
@@ -74,6 +74,15 @@ export function AgentControlBar({
     endSession();
     onDisconnect?.();
   }, [endSession, onDisconnect]);
+
+  const handleRestartStory = useCallback(async () => {
+    // End current session and immediately start a new one
+    endSession();
+    // Wait a brief moment for cleanup
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  }, [endSession]);
 
   const visibleControls = {
     leave: controls?.leave ?? true,
@@ -160,19 +169,33 @@ export function AgentControlBar({
           </Toggle>
         </div>
 
-        {/* Disconnect */}
-        {visibleControls.leave && (
+        <div className="flex gap-1">
+          {/* Restart Story */}
           <Button
-            variant="destructive"
-            onClick={handleDisconnect}
+            variant="secondary"
+            onClick={handleRestartStory}
             disabled={!isSessionActive}
             className="font-mono"
+            title="Restart the adventure from the beginning"
           >
-            <PhoneDisconnectIcon weight="bold" />
-            <span className="hidden md:inline">END CALL</span>
-            <span className="inline md:hidden">END</span>
+            <ArrowClockwise weight="bold" />
+            <span className="hidden md:inline">RESTART</span>
           </Button>
-        )}
+
+          {/* Disconnect */}
+          {visibleControls.leave && (
+            <Button
+              variant="destructive"
+              onClick={handleDisconnect}
+              disabled={!isSessionActive}
+              className="font-mono"
+            >
+              <PhoneDisconnectIcon weight="bold" />
+              <span className="hidden md:inline">END CALL</span>
+              <span className="inline md:hidden">END</span>
+            </Button>
+          )}
+        </div>
       </div>
     </div>
   );

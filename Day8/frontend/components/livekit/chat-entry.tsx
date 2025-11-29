@@ -28,6 +28,9 @@ export const ChatEntry = ({
 }: ChatEntryProps) => {
   const time = new Date(timestamp);
   const title = time.toLocaleTimeString(locale, { timeStyle: 'full' });
+  
+  const isGameMaster = messageOrigin === 'remote';
+  const displayName = isGameMaster ? '🎲 Game Master' : '⚔️ You';
 
   return (
     <li
@@ -38,11 +41,13 @@ export const ChatEntry = ({
     >
       <header
         className={cn(
-          'text-muted-foreground flex items-center gap-2 text-sm',
+          'text-muted-foreground flex items-center gap-2 text-sm font-medium',
           messageOrigin === 'local' ? 'flex-row-reverse' : 'text-left'
         )}
       >
-        {name && <strong>{name}</strong>}
+        <strong className={isGameMaster ? 'text-purple-600 dark:text-purple-400' : 'text-blue-600 dark:text-blue-400'}>
+          {name || displayName}
+        </strong>
         <span className="font-mono text-xs opacity-0 transition-opacity ease-linear group-hover:opacity-100">
           {hasBeenEdited && '*'}
           {time.toLocaleTimeString(locale, { timeStyle: 'short' })}
@@ -50,13 +55,19 @@ export const ChatEntry = ({
       </header>
       <span
         className={cn(
-          'max-w-[80%] rounded-[20px] px-4 py-2',
+          'max-w-[80%] rounded-[20px] px-4 py-2 shadow-sm',
           messageOrigin === 'local' 
-            ? 'bg-primary text-primary-foreground ml-auto' 
-            : 'bg-muted text-foreground mr-auto'
+            ? 'bg-blue-600 text-white ml-auto' 
+            : 'bg-purple-100 dark:bg-purple-900/40 text-foreground border border-purple-200 dark:border-purple-700 mr-auto'
         )}
       >
-        {message}
+        {/** Preserve explicit newlines encoded as \n by rendering them as <br/> */}
+        {message.split('\n').map((line, i) => (
+          <React.Fragment key={i}>
+            {line}
+            {i < message.split('\n').length - 1 && <br />}
+          </React.Fragment>
+        ))}
       </span>
     </li>
   );

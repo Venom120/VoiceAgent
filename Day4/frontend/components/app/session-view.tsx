@@ -146,7 +146,7 @@ export const SessionView = ({
           <PreConnectMessage messages={messages} className="pb-4" />
         )}
         <div className="relative mx-auto max-w-2xl pb-3 md:pb-12">
-          <Fade bottom className="absolute inset-x-0 top-0 h-4 -translate-y-full" />
+          {/* <Fade bottom className="absolute inset-x-0 top-0 h-4 -translate-y-full" /> */}
           <AgentControlBar controls={controls} onChatOpenChange={setChatOpen} />
         </div>
       </MotionBottom>

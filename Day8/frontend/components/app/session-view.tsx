@@ -112,14 +112,13 @@ export const SessionView = ({
       {/* Chat Transcript */}
       <div
         className={cn(
-          'fixed inset-0 z-20 grid grid-cols-1 grid-rows-1',
+          'chat-background fixed inset-0 z-20 grid grid-cols-1 grid-rows-1',
           !chatOpen && 'pointer-events-none'
         )}
       >
         {/* Backdrop */}
-        {chatOpen && (
-          <div className="pointer-events-none absolute inset-0 z-10 bg-black/60 backdrop-blur-sm" />
-        )}
+        {/* // reduce blur effect so background is clearer; keep a subtle dark overlay for legibility */}
+        <div className="pointer-events-none absolute inset-0 z-10 bg-black/45 backdrop-blur-xs" />
         
         {/* Gradient Fades */}
         <Fade top className="absolute inset-x-4 top-0 z-30 h-40" />
@@ -146,7 +145,7 @@ export const SessionView = ({
           <PreConnectMessage messages={messages} className="pb-4" />
         )}
         <div className="relative mx-auto max-w-2xl pb-3 md:pb-12">
-          <Fade bottom className="absolute inset-x-0 top-0 h-4 -translate-y-full" />
+          {/* <Fade bottom className="absolute inset-x-0 top-0 h-4 -translate-y-full" /> */}
           <AgentControlBar controls={controls} onChatOpenChange={setChatOpen} />
         </div>
       </MotionBottom>

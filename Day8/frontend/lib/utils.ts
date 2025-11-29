@@ -29,8 +29,12 @@ export const getAppConfig = cache(async (headers: Headers): Promise<AppConfig> =
     const sandboxId = SANDBOX_ID ?? headers.get('x-sandbox-id') ?? '';
 
     try {
+      // If no sandbox id is available, skip querying the config endpoint and
+      // fall back to defaults. Previously this threw an error which surfaced
+      // in server logs during development; prefer a graceful fallback.
       if (!sandboxId) {
-        throw new Error('Sandbox ID is required');
+        console.warn('WARNING: getAppConfig() - no sandbox id provided; using defaults');
+        return APP_CONFIG_DEFAULTS;
       }
 
       const response = await fetch(CONFIG_ENDPOINT, {
