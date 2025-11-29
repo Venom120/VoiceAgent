@@ -56,7 +56,6 @@ export const ChatEntry = ({
             : 'bg-muted text-foreground mr-auto'
         )}
       >
-        {/** Preserve explicit newlines encoded as \n by rendering them as <br/> */}
         {message.split('\n').map((line, i) => (
           <React.Fragment key={i}>
             {line}

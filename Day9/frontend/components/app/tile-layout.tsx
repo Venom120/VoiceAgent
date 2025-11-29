@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Track } from 'livekit-client';
 import { AnimatePresence, motion } from 'motion/react';
 import {
@@ -8,8 +8,11 @@ import {
   useLocalParticipant,
   useTracks,
   useVoiceAssistant,
+  useDataChannel,
 } from '@livekit/components-react';
 import { cn } from '@/lib/utils';
+import CurrentProducts from '@/components/app/current-products';
+import LastOrder from '@/components/app/last-order';
 
 const MotionContainer = motion.create('div');
 
@@ -91,148 +94,203 @@ export function TileLayout({ chatOpen }: TileLayoutProps) {
   const videoWidth = agentVideoTrack?.publication.dimensions?.width ?? 0;
   const videoHeight = agentVideoTrack?.publication.dimensions?.height ?? 0;
 
-  return (
-    <div className="pointer-events-none fixed inset-x-0 top-8 bottom-32 z-50 md:top-12 md:bottom-40">
-      <div className="relative mx-auto h-full max-w-2xl px-4 md:px-0">
-        <div className={cn(classNames.grid)}>
-          {/* Agent */}
-          <div
-            className={cn([
-              'grid',
-              !chatOpen && classNames.agentChatClosed,
-              chatOpen && hasSecondTile && classNames.agentChatOpenWithSecondTile,
-              chatOpen && !hasSecondTile && classNames.agentChatOpenWithoutSecondTile,
-            ])}
-          >
-            <AnimatePresence mode="popLayout">
-              {!isAvatar && (
-                // Audio Agent
-                <MotionContainer
-                  key="agent"
-                  layoutId="agent"
-                  initial={{
-                    opacity: 0,
-                    scale: 0,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    scale: chatOpen ? 1 : 5,
-                  }}
-                  transition={{
-                    ...ANIMATION_TRANSITION,
-                    delay: animationDelay,
-                  }}
-                  className={cn(
-                    'bg-background/60 aspect-square h-[90px] rounded-md border border-transparent transition-[border,drop-shadow]',
-                    chatOpen && 'border-input/50 drop-shadow-lg/10 delay-200'
-                  )}
-                >
-                  <BarVisualizer
-                    barCount={5}
-                    state={agentState}
-                    options={{ minHeight: 5 }}
-                    trackRef={agentAudioTrack}
-                    className={cn('flex h-full items-center justify-center gap-1')}
-                  >
-                    <span
-                      className={cn([
-                        'bg-muted min-h-2.5 w-2.5 rounded-full',
-                        'origin-center transition-colors duration-250 ease-linear',
-                        'data-[lk-highlighted=true]:bg-foreground data-[lk-muted=true]:bg-muted',
-                      ])}
-                    />
-                  </BarVisualizer>
-                </MotionContainer>
-              )}
+  // Shopping state from backend
+  const [shoppingState, setShoppingState] = useState(null);
+  const { message: shoppingStateMessage } = useDataChannel("shopping_state");
 
-              {isAvatar && (
-                // Avatar Agent
-                <MotionContainer
-                  key="avatar"
-                  layoutId="avatar"
-                  initial={{
-                    scale: 1,
-                    opacity: 1,
-                    maskImage:
-                      'radial-gradient(circle, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 1) 20px, transparent 20px)',
-                    filter: 'blur(20px)',
-                  }}
-                  animate={{
-                    maskImage:
-                      'radial-gradient(circle, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 1) 500px, transparent 500px)',
-                    filter: 'blur(0px)',
-                    borderRadius: chatOpen ? 6 : 12,
-                  }}
-                  transition={{
-                    ...ANIMATION_TRANSITION,
-                    delay: animationDelay,
-                    maskImage: {
-                      duration: 1,
-                    },
-                    filter: {
-                      duration: 1,
-                    },
-                  }}
-                  className={cn(
-                    'overflow-hidden bg-black drop-shadow-xl/80',
-                    chatOpen ? 'h-[90px]' : 'h-auto w-full'
-                  )}
-                >
-                  <VideoTrack
-                    width={videoWidth}
-                    height={videoHeight}
-                    trackRef={agentVideoTrack}
-                    className={cn(chatOpen && 'size-[90px] object-cover')}
-                  />
-                </MotionContainer>
-              )}
-            </AnimatePresence>
+  useEffect(() => {
+    console.log("TileLayout: useDataChannel returned", shoppingStateMessage);
+    if (!shoppingStateMessage) return;
+
+    // Parse the message from backend
+    handleIncomingMessage(shoppingStateMessage);
+
+    function handleIncomingMessage(msg: any) {
+      let text = "";
+      try {
+        const decoder = new TextDecoder();
+        const payload = msg.payload ?? msg;
+        if (payload instanceof Uint8Array) {
+          text = decoder.decode(payload);
+        } else if (payload instanceof ArrayBuffer) {
+          text = decoder.decode(payload);
+        } else if (typeof payload === "string") {
+          text = payload;
+        } else {
+          console.warn("Unknown payload type:", typeof payload, payload);
+          text = String(payload);
+        }
+        text = text.trim().replace(/^\ufeff/g, ''); // remove BOM and trim
+        console.log("🛍️ TileLayout received shopping_state from backend (data channel):", text);
+        const parsed = JSON.parse(text);
+        setShoppingState(parsed);
+      } catch (err) {
+        console.error("TileLayout: failed to parse shopping_state data message:", err, "Text was:", text);
+      }
+    }
+  }, [shoppingStateMessage]);
+
+  return (
+    <>
+      {/* Shopping Panels - products on the left, last order on the right */}
+      {shoppingState && (
+        <> 
+          <div className="pointer-events-auto fixed left-4 top-20 bottom-40 z-40 w-80 md:left-12">
+            <div className="h-full overflow-y-auto">
+              <CurrentProducts products={shoppingState.current_products ?? []} />
+            </div>
           </div>
 
-          <div
-            className={cn([
-              'grid',
-              chatOpen && classNames.secondTileChatOpen,
-              !chatOpen && classNames.secondTileChatClosed,
-            ])}
-          >
-            {/* Camera & Screen Share */}
-            <AnimatePresence>
-              {((cameraTrack && isCameraEnabled) || (screenShareTrack && isScreenShareEnabled)) && (
-                <MotionContainer
-                  key="camera"
-                  layout="position"
-                  layoutId="camera"
-                  initial={{
-                    opacity: 0,
-                    scale: 0,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    scale: 1,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    scale: 0,
-                  }}
-                  transition={{
-                    ...ANIMATION_TRANSITION,
-                    delay: animationDelay,
-                  }}
-                  className="drop-shadow-lg/20"
-                >
-                  <VideoTrack
-                    trackRef={cameraTrack || screenShareTrack}
-                    width={(cameraTrack || screenShareTrack)?.publication.dimensions?.width ?? 0}
-                    height={(cameraTrack || screenShareTrack)?.publication.dimensions?.height ?? 0}
-                    className="bg-muted aspect-square w-[90px] rounded-md object-cover"
-                  />
-                </MotionContainer>
-              )}
-            </AnimatePresence>
+          <div className="pointer-events-auto fixed right-4 top-20 bottom-40 z-40 w-80 md:right-12">
+            <div className="h-full overflow-y-auto">
+              <LastOrder order={shoppingState.last_order ?? null} />
+            </div>
+          </div>
+        </>
+      )}
+
+      <div className="pointer-events-none fixed inset-x-0 top-8 bottom-32 z-50 md:top-12 md:bottom-40">
+        <div className="relative mx-auto h-full max-w-2xl px-4 md:px-0">
+          <div className={cn(classNames.grid)}>
+            {/* Agent */}
+            <div
+              className={cn([
+                'grid',
+                !chatOpen && classNames.agentChatClosed,
+                chatOpen && hasSecondTile && classNames.agentChatOpenWithSecondTile,
+                chatOpen && !hasSecondTile && classNames.agentChatOpenWithoutSecondTile,
+              ])}
+            >
+              <AnimatePresence mode="popLayout">
+                {!isAvatar && (
+                  // Audio Agent
+                  <MotionContainer
+                    key="agent"
+                    layoutId="agent"
+                    initial={{
+                      opacity: 0,
+                      scale: 0,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      scale: chatOpen ? 1 : 5,
+                    }}
+                    transition={{
+                      ...ANIMATION_TRANSITION,
+                      delay: animationDelay,
+                    }}
+                    className={cn(
+                      'bg-background/60 aspect-square h-[90px] rounded-md border border-transparent transition-[border,drop-shadow]',
+                      chatOpen && 'border-input/50 drop-shadow-lg/10 delay-200'
+                    )}
+                  >
+                    <BarVisualizer
+                      barCount={5}
+                      state={agentState}
+                      options={{ minHeight: 5 }}
+                      trackRef={agentAudioTrack}
+                      className={cn('flex h-full items-center justify-center gap-1')}
+                    >
+                      <span
+                        className={cn([
+                          'bg-muted min-h-2.5 w-2.5 rounded-full',
+                          'origin-center transition-colors duration-250 ease-linear',
+                          'data-[lk-highlighted=true]:bg-foreground data-[lk-muted=true]:bg-muted',
+                        ])}
+                      />
+                    </BarVisualizer>
+                  </MotionContainer>
+                )}
+
+                {isAvatar && (
+                  // Avatar Agent
+                  <MotionContainer
+                    key="avatar"
+                    layoutId="avatar"
+                    initial={{
+                      scale: 1,
+                      opacity: 1,
+                      maskImage:
+                        'radial-gradient(circle, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 1) 20px, transparent 20px)',
+                      filter: 'blur(20px)',
+                    }}
+                    animate={{
+                      maskImage:
+                        'radial-gradient(circle, rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 1) 500px, transparent 500px)',
+                      filter: 'blur(0px)',
+                      borderRadius: chatOpen ? 6 : 12,
+                    }}
+                    transition={{
+                      ...ANIMATION_TRANSITION,
+                      delay: animationDelay,
+                      maskImage: {
+                        duration: 1,
+                      },
+                      filter: {
+                        duration: 1,
+                      },
+                    }}
+                    className={cn(
+                      'overflow-hidden bg-black drop-shadow-xl/80',
+                      chatOpen ? 'h-[90px]' : 'h-auto w-full'
+                    )}
+                  >
+                    <VideoTrack
+                      width={videoWidth}
+                      height={videoHeight}
+                      trackRef={agentVideoTrack}
+                      className={cn(chatOpen && 'size-[90px] object-cover')}
+                    />
+                  </MotionContainer>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <div
+              className={cn([
+                'grid',
+                chatOpen && classNames.secondTileChatOpen,
+                !chatOpen && classNames.secondTileChatClosed,
+              ])}
+            >
+              {/* Camera & Screen Share */}
+              <AnimatePresence>
+                {((cameraTrack && isCameraEnabled) || (screenShareTrack && isScreenShareEnabled)) && (
+                  <MotionContainer
+                    key="camera"
+                    layout="position"
+                    layoutId="camera"
+                    initial={{
+                      opacity: 0,
+                      scale: 0,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0,
+                    }}
+                    transition={{
+                      ...ANIMATION_TRANSITION,
+                      delay: animationDelay,
+                    }}
+                    className="drop-shadow-lg/20"
+                  >
+                    <VideoTrack
+                      trackRef={cameraTrack || screenShareTrack}
+                      width={(cameraTrack || screenShareTrack)?.publication.dimensions?.width ?? 0}
+                      height={(cameraTrack || screenShareTrack)?.publication.dimensions?.height ?? 0}
+                      className="bg-muted aspect-square w-[90px] rounded-md object-cover"
+                    />
+                  </MotionContainer>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
