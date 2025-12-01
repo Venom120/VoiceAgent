@@ -21,19 +21,19 @@ export interface AppConfig {
 
 export const APP_CONFIG_DEFAULTS: AppConfig = {
   companyName: 'Venom120',
-  pageTitle: 'Venom120 Voice Agent',
-  pageDescription: 'A voice agent built with LiveKit',
+  pageTitle: 'Improv Battle',
+  pageDescription: 'A voice-first improv game show',
 
   supportsChatInput: true,
-  supportsVideoInput: true,
-  supportsScreenShare: true,
+  supportsVideoInput: false,
+  supportsScreenShare: false,
   isPreConnectBufferEnabled: true,
 
   logo: '/lk-logo.svg',
-  accent: '#002cf2',
+  accent: '#7c3aed',
   logoDark: '/lk-logo-dark.svg',
   accentDark: '#1fd5f9',
-  startButtonText: 'Start call',
+  startButtonText: 'Start Improv Battle',
 
   // for LiveKit Cloud Sandbox
   sandboxId: undefined,
